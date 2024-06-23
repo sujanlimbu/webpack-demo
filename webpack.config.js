@@ -1,14 +1,23 @@
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const toml = require('toml');
 const yaml = require('yamljs');
 const json5 = require('json5');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    myname: './src/myName.js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack Tutorial',
+    }),
+  ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   module: {
     rules: [
@@ -54,11 +63,5 @@ module.exports = {
         },
       },
     ],
-  },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: './src/template.html',
-  //   }),
-  // ],
-  
+  }
 };

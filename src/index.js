@@ -23,9 +23,10 @@ function component() {
     // Lodash, now imported by this script
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-    const name = myName('sujan');
-    element.append(name);
-    // element.textContent = myName('sujan');
+    const btn = document.createElement('button');
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = myName;
+    element.appendChild(btn);
 
     element.classList.add('hello');
 

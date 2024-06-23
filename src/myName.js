@@ -1,3 +1,3 @@
-const myName = (name) => 'Hi, my name is '+name;
-
-export default myName;
+export default function printMe() {
+    console.log('Hi! My name is Sujan.');
+}
